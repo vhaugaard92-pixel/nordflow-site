@@ -29,16 +29,28 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-[#08080a]/70 border-b border-white/5">
           <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
             <a href="/" className="font-serif italic text-lg">Nord<span className="text-accent">Flow</span></a>
-            <div className="flex gap-6 text-sm text-muted">
-              <a href="/artikler" className="hover:text-fg transition">Artikler</a>
-              <a href="/#features" className="hover:text-fg transition">Features</a>
-              <a href="https://calendly.com/vhaugaard92/vvs-automation-gratis-demo" className="text-fg hover:text-accent transition">Book demo →</a>
+            <div className="flex gap-6 text-sm text-muted items-center">
+              <a href="/#features" className="hover:text-fg transition hidden sm:inline">Features</a>
+              <a href="/#pakker" className="hover:text-fg transition hidden sm:inline">Pakker</a>
+              <a href="/artikler" className="hover:text-fg transition hidden sm:inline">Artikler</a>
+              <a
+                href="https://calendly.com/vhaugaard92/vvs-automation-gratis-demo"
+                className="px-4 py-2 bg-accent/10 border border-accent/30 text-fg rounded-full hover:bg-accent/20 transition"
+              >
+                Book demo →
+              </a>
             </div>
           </div>
         </nav>
         <main className="pt-20">{children}</main>
-        <footer className="border-t border-white/5 mt-32 py-10 text-center text-sm text-muted font-mono">
-          <span>NordFlow · Automatisering til VVS · Made in Denmark</span>
+        <footer className="border-t border-white/5 mt-32 py-12 text-center text-sm text-muted font-mono">
+          <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <span>NordFlow · Automatisering til VVS · Made in Denmark</span>
+            <div className="flex gap-6">
+              <a href="/artikler" className="hover:text-fg transition">Artikler</a>
+              <a href="https://calendly.com/vhaugaard92/vvs-automation-gratis-demo" className="hover:text-fg transition">Book demo</a>
+            </div>
+          </div>
         </footer>
       </body>
     </html>
