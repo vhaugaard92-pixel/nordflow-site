@@ -36,7 +36,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       </h1>
       <p className="text-xl text-muted leading-relaxed mb-12 max-w-2xl">{article.excerpt}</p>
 
-      <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: article.html }} />
+      <div className="prose prose-invert prose-lg max-w-none prose-headings:font-serif prose-headings:font-light prose-a:text-accent prose-strong:text-fg prose-table:text-sm" dangerouslySetInnerHTML={{ __html: article.html }} />
 
       <div className="mt-20 p-10 border border-accent/30 rounded-2xl bg-accent/5 text-center">
         <h3 className="font-serif text-2xl mb-4">Interesseret i at se systemet i aktion?</h3>
