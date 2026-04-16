@@ -14,6 +14,16 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image' }
 };
 
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'NordFlow',
+  url: 'https://nordflow.it.com',
+  description: 'Automatisering til danske VVS-firmaer. Google-anmeldelser, missede opkald og tilbudsopfølgning.',
+  areaServed: { '@type': 'Country', name: 'Denmark' },
+  serviceType: 'Business Process Automation'
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="da">
