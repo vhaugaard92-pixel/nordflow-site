@@ -27,8 +27,20 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const article = getArticleBySlug(slug);
   if (!article) notFound();
 
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.title,
+    description: article.excerpt,
+    datePublished: article.date,
+    publisher: { '@type': 'Organization', name: 'NordFlow', url: 'https://nordflow.it.com' },
+    url: `https://nordflow.it.com/artikler/${slug}`,
+    keywords: article.keywords.join(', ')
+  };
+
   return (
     <article className="max-w-3xl mx-auto px-6 py-20">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <Link href="/artikler" className="text-sm text-muted hover:text-fg transition inline-block mb-12">← Alle artikler</Link>
       <div className="text-xs text-muted font-mono mb-4">{article.date}</div>
       <h1 className="font-serif text-4xl md:text-5xl font-light leading-[1.05] tracking-tight mb-8">
